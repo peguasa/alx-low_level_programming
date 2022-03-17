@@ -1,37 +1,34 @@
 #include "main.h"
+
+
 /**
- * print_number - prints numbers
+ * print_number - prints a number to the screen
  * @n: number to be printed
- * Return:void
+ * Return: nothing
  */
 
 void print_number(int n)
 {
 
-int d = 1, i = 0, ii = 0;
-
 if (n < 0)
 {
 _putchar('-');
-n = -n;
+print_unsigned_int(-(unsigned int)n);
+}
+else
+print_unsigned_int(n);
 }
 
-while (n / d != 0)
+/**
+* print_unsigned_int - print an unsigned integer
+* @n: given unsigned integer
+*
+* Return: nothing
+*/
+void print_unsigned_int(unsigned int n)
 {
-d *= 10;
-i++;
-}
-d = d / 10;
-
-while (ii < i)
-{
-_putchar('0' + n / d);
-n = n - (n / d) *d;
-d = d / 10;
-ii++;
+if (n / 10)
+print_unsigned_int(n / 10);
+_putchar((n % 10) + '0');
 }
 
-if (i == 0)
-_putchar('0' + n);
-
-}
